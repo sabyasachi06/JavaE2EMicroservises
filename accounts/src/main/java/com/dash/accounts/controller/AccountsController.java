@@ -3,6 +3,9 @@ package com.dash.accounts.controller;
 import com.dash.accounts.constants.AccountsConstants;
 import com.dash.accounts.dto.CustomerDto;
 import com.dash.accounts.dto.ResponseDto;
+import com.dash.accounts.service.AccountsServiceImpl;
+import com.dash.accounts.service.IAccountService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
+@AllArgsConstructor
 public class AccountsController {
 
-    @PostMapping
+    IAccountService accountService;
+
+    @PostMapping("/create")
     public ResponseEntity<ResponseDto> createAccount(@RequestBody CustomerDto customerDto) {
+        accountService.createAccount(customerDto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(new ResponseDto(AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201));
