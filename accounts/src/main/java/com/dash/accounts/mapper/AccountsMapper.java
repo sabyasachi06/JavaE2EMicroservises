@@ -5,16 +5,16 @@ import com.dash.accounts.entity.Accounts;
 
 public class AccountsMapper {
     public static AccountsDto mapToAccountsDto(Accounts accounts, AccountsDto accountsDto){
-        accountsDto.setAccount_number(accounts.getAccount_number());
-        accountsDto.setAccount_type(accounts.getAccount_type());
-        accountsDto.setBranch_address(accounts.getBranch_address());
+        accountsDto.setAccount_number(accounts.getAccountNumber());
+        accountsDto.setAccount_type(accounts.getAccountType());
+        accountsDto.setBranch_address(accounts.getBranchAddress());
         return accountsDto;
     }
 
     public static Accounts mapToAccounts(AccountsDto accountsDto, Accounts accounts){
-        accounts.setAccount_number(accountsDto.getAccount_number());
-        accounts.setAccount_type(accountsDto.getAccount_type());
-        accounts.setBranch_address(accountsDto.getBranch_address());
+        accounts.setAccountNumber(accountsDto.getAccount_number());
+        accounts.setAccountType(accountsDto.getAccount_type());
+        accounts.setBranchAddress(accountsDto.getBranch_address());
         return accounts;
     }
 }
