@@ -3,7 +3,7 @@ This is an end-to-end microservices implementation with all Devops and logging c
 
 1) The accounts microservice is functional now, all the exceptions are handled.
 2) The CURD api are listed below.
-3) The forward actions are to implement swagger/openapi documentations, customer and loans service implementatin.
+3) The forward actions are to implement swagger/openapi documentations, customer and loans service implementation.
 
 # List of CURD API and how they should be called in postman.
 
