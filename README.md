@@ -37,3 +37,12 @@ This is an end-to-end microservices implementation with all Devops and logging c
 5) Delete the created account.
 
     DELETE : http://localhost:8080/api/delete?mobileNumber=999999999
+
+# Swagger API document generation.
+1) In order to generate the documentation we need to add the swagger UI dependency in the pom.
+ ```xml
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>2.8.1</version>
+   </dependency>
