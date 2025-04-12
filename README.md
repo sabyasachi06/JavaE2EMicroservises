@@ -12,11 +12,13 @@ This is an end-to-end microservices implementation with all Devops and logging c
     
     POST : http://localhost:8080/api/create
     
-    JSON : {
+```JSON
+   {
    "name": "Sabyasachi Dash",
    "email": "test@gmail.com",
    "mobileNumber": "0123456789"
    } 
+```
 3) Get the account details.
 
     GET : http://localhost:8080/api/fetch?mobileNumber=0123456789
@@ -24,7 +26,8 @@ This is an end-to-end microservices implementation with all Devops and logging c
     
     PUT : http://localhost:8080/api/update
 
-    JSON : {
+```JSON 
+  {
    "name": "Sabyasachi Dash",
    "email": "test@gmail.com",
    "mobileNumber": "9999999999",
@@ -32,8 +35,9 @@ This is an end-to-end microservices implementation with all Devops and logging c
    "accountNumber": 1465609714,
    "accountType": "Savings",
    "branchAddress": "123 Main Street, New York"
-   }
-   }
+   },
+  }
+```        
 5) Delete the created account.
 
     DELETE : http://localhost:8080/api/delete?mobileNumber=999999999
@@ -46,3 +50,5 @@ This is an end-to-end microservices implementation with all Devops and logging c
       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
       <version>2.8.1</version>
    </dependency>
+```
+# Implemented cards and loans microservices, running in 8090 and 9000 ports respectively.
