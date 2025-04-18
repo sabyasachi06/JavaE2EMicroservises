@@ -90,6 +90,17 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
+            <plugin>
+                <!-- Google jib package which will create a docker image for us-->
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>3.4.5</version>
+                <configuration>
+                    <to>
+                        <image>sabdash/${project.artifactId}:s4</image>
+                    </to>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
