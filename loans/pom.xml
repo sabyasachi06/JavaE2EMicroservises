@@ -8,7 +8,7 @@
         <version>3.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.dash</groupId>
+    <groupId>com.eazybytes</groupId>
     <artifactId>loans</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -79,10 +79,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -96,13 +92,12 @@
                 </configuration>
             </plugin>
             <plugin>
-                <!-- Google jib package which will create a docker image for us-->
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.4.5</version>
+                <version>3.4.2</version>
                 <configuration>
                     <to>
-                        <image>sabdash/${project.artifactId}:s4</image>
+                        <image>sabdash/${project.artifactId}:s6</image>
                     </to>
                 </configuration>
             </plugin>

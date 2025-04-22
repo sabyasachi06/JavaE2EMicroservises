@@ -17,3 +17,15 @@ spring:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to the Test bank services for accounts"
+  contactDetails:
+    name: "Sabyasachi Dash"
+    email: "dashsabya66@gmail.com"
+  OnCallSupport:
+    - 050-110022
+    - 050-124345

@@ -14,3 +14,15 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+build:
+  version: "1.0"
+
+loans:
+  message: "Welcome to the Test bank services for loans"
+  contactDetails:
+    name: "Sabyasachi Dash"
+    email: "dashsabya66@gmail.com"
+  OnCallSupport:
+    - 050-110022
+    - 050-124345

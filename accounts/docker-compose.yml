@@ -1,6 +1,6 @@
 services:
   accounts:
-    image: "sabdash/accounts:s4"
+    image: "sabdash/accounts:s6"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -11,7 +11,7 @@ services:
     networks:
       - testBank
   loans:
-    image: "sabdash/loans:s4"
+    image: "sabdash/loans:s6"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -22,7 +22,7 @@ services:
     networks:
       - testBank
   cards:
-    image: "sabdash/cards:s4"
+    image: "sabdash/cards:s6"
     container_name: cards-ms
     ports:
       - "9000:9000"
