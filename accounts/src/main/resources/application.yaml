@@ -1,6 +1,10 @@
 server:
   port: 8080
 spring:
+  application:
+    name: "accounts"
+  profiles:
+    active: "prod"
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
@@ -14,22 +18,24 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+#  config:   <This section is commented since we are using config server as external config management.
+#    import:
+#      - "application_qa.ymlBak"
+#      - "application_prod.ymlBak"
   config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
+    import: "optional:configserver:http://localhost:8071/"
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
 
-build:
-  version: "1.0"
-
-accounts:
-  message: "Welcome to the Test bank services for accounts"
-  contactDetails:
-    name: "Sabyasachi Dash"
-    email: "dashsabya66@gmail.com"
-  OnCallSupport:
-    - 050-110022
-    - 050-124345
+#build:
+#  version: "1.0"
+#
+#accounts:
+#  message: "Welcome to the Test bank services for accounts"
+#  contactDetails:
+#    name: "Sabyasachi Dash"
+#    email: "dashsabya66@gmail.com"
+#  OnCallSupport:
+#    - 050-110022
+#    - 050-124345

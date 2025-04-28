@@ -1,6 +1,10 @@
 server:
   port: 8090
 spring:
+  application:
+    name: "loans"
+  profiles:
+    active: "prod"
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
@@ -15,17 +19,21 @@ spring:
       ddl-auto: update
     show-sql: true
   config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
-build:
-  version: "1.0"
+    import: "optional:configserver:http://localhost:8071"
 
-loans:
-  message: "Welcome to the Test bank services for loans"
-  contactDetails:
-    name: "Sabyasachi Dash"
-    email: "dashsabya66@gmail.com"
-  OnCallSupport:
-    - 050-110022
-    - 050-124345
+
+#  config:
+#    import:
+#      - "application_qa.ymlBak"
+#      - "application_prod.ymlBak"
+#build:
+#  version: "1.0"
+#
+#loans:
+#  message: "Welcome to the Test bank services for loans"
+#  contactDetails:
+#    name: "Sabyasachi Dash"
+#    email: "dashsabya66@gmail.com"
+#  OnCallSupport:
+#    - 050-110022
+#    - 050-124345
