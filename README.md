@@ -52,3 +52,8 @@ This is an end-to-end microservices implementation with all Devops and logging c
    </dependency>
 ```
 # Implemented cards and loans microservices, running in 8090 and 9000 ports respectively.
+
+# To generate the docker images again, use the below maven command.
+```yaml
+mvn compile jib:dockerBuild
+```
