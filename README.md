@@ -57,3 +57,9 @@ This is an end-to-end microservices implementation with all Devops and logging c
 ```yaml
 mvn compile jib:dockerBuild
 ```
+
+# To start the myswl docker container locally, use the below command. (NOTE : here -e means environment variables)
+```
+docker run -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb -d mysql
+```
+# To access the mysql from a client, we can download sqlectron, locally in our system.
