@@ -15,11 +15,11 @@ spring:
             default-label: main
             timeout: 5
             clone-on-start: true
-  rabbitmq:
-    host: "localhost"
-    port: 5672
-    username: "guest"
-    password: "guest"
+#  rabbitmq:    ------> Not needed anymore, since we are not depending on rabbitmq
+#    host: "localhost"
+#    port: 5672
+#    username: "guest"
+#    password: "guest"
 
 management:
   endpoints:

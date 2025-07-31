@@ -1,0 +1,68 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "accounts"
+  profiles:
+    active: "prod"
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+#   Dependency for h2 in memory db
+#    <dependency>
+#    <groupId>com.h2database</groupId>
+#    <artifactId>h2</artifactId>
+#    <scope>runtime</scope>
+#    </dependency>
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+#  config:   <This section is commented since we are using config server as external config management.
+#    import:
+#      - "application_qa.ymlBak"
+#      - "application_prod.ymlBak"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+
+
+#build:
+#  version: "1.0"
+#
+#accounts:
+#  message: "Welcome to the Test bank services for accounts"
+#  contactDetails:
+#    name: "Sabyasachi Dash"
+#    email: "dashsabya66@gmail.com"
+#  OnCallSupport:
+#    - 050-110022
+#    - 050-124345
