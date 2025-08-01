@@ -63,3 +63,13 @@ mvn compile jib:dockerBuild
 docker run -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb -d mysql
 ```
 # To access the mysql from a client, we can download sqlectron, locally in our system.
+
+# Check for which network your containers are running using the below command.
+```
+docker network ls
+```
+
+# Check you docker container is attached to which network id of the above output.
+```yaml
+docker inspect containerId 
+```
