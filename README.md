@@ -73,3 +73,8 @@ docker network ls
 ```yaml
 docker inspect containerId 
 ```
+
+# Url for ureka server
+```yaml
+http://localhost:8070/
+```   

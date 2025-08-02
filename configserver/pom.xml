@@ -8,7 +8,7 @@
 		<version>3.4.1</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.eazybytes</groupId>
+	<groupId>com.testBank</groupId>
 	<artifactId>configserver</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>configserver</name>
@@ -56,7 +56,7 @@
 				<version>3.4.2</version>
 				<configuration>
 					<to>
-						<image>sabdash/${project.artifactId}:s7</image>
+						<image>sabdash/${project.artifactId}:s8</image>
 					</to>
 				</configuration>
 			</plugin>
