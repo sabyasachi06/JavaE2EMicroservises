@@ -1,4 +1,4 @@
-package com.dash.accounts.service;
+package com.dash.accounts.service.impl;
 
 import com.dash.accounts.Exception.AccountsAlreadyExistsException;
 import com.dash.accounts.Exception.ResourceNotFoundException;
@@ -11,6 +11,7 @@ import com.dash.accounts.mapper.AccountsMapper;
 import com.dash.accounts.mapper.CustomerMapper;
 import com.dash.accounts.repository.IAccountsRepository;
 import com.dash.accounts.repository.ICustomerRepository;
+import com.dash.accounts.service.IAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
