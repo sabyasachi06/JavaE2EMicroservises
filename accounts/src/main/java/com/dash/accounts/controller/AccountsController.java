@@ -6,6 +6,8 @@ import com.dash.accounts.dto.CustomerDto;
 import com.dash.accounts.dto.ErrorResponseDto;
 import com.dash.accounts.dto.ResponseDto;
 import com.dash.accounts.service.IAccountService;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.retry.annotation.Retry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -14,6 +16,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -31,6 +35,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class AccountsController {
 
+   private static final Logger logger = LoggerFactory.getLogger(AccountsController.class);
    private final IAccountService accountService;
    private final Environment environment;
    private final AccountsInfoRecord accountsInfo;
@@ -190,9 +195,20 @@ public class AccountsController {
             )
     }
     )
+    @Retry(name = "getBuildInfo",fallbackMethod = "getBuildInfoFallback")
     @GetMapping("/build-info")
     public ResponseEntity<String> getBuildInfo() {
+        logger.debug("getBuildInfo() method Invoked");
+        //throw new RuntimeException();
         return ResponseEntity.status(HttpStatus.OK).body(buildNumber);
+    }
+
+
+    public ResponseEntity<String> getBuildInfoFallback(Throwable throwable) {
+        logger.debug("getBuildInfoFallback() method Invoked");
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body("0.9");
     }
 
     @Operation(
@@ -213,9 +229,16 @@ public class AccountsController {
             )
     }
     )
+    @RateLimiter(name= "getJavaVersion", fallbackMethod = "getJavaVersionFallback")
     @GetMapping("/java-version")
     public ResponseEntity<String> getJavaVersion() {
         return ResponseEntity.status(HttpStatus.OK).body(environment.getProperty("JAVA_HOME"));
+    }
+
+    public ResponseEntity<String> getJavaVersionFallback(Throwable throwable) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body("Java 21");
     }
 
     @Operation(
